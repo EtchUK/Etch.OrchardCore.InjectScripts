@@ -6,9 +6,9 @@
     <Version>0.0.1-beta</Version>
     <PackageId>Etch.OrchardCore.InjectScripts</PackageId>
     <Title>Inject Scripts</Title>
-    <Authors>Moov2</Authors>
+    <Authors>Etch</Authors>
     <Description>Specify custom script blocks in to head or foot sections</Description>
-    <PackageTags>orchardcore;moov2</PackageTags>
+    <PackageTags>orchardcore;etchuk</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
