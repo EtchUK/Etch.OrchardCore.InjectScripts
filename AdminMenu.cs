@@ -28,6 +28,7 @@ namespace Etch.OrchardCore.InjectScripts
             builder.Add(T["Configuration"], content => content
                 .Add(T["Scripts"], "10", contentItems => contentItems
                     .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = Constants.GroupId })
+                    .Permission(Permissions.ManageInjectScripts)
                     .LocalNav())
                 );
 

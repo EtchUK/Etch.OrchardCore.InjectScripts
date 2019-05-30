@@ -1,5 +1,6 @@
 ﻿using Etch.OrchardCore.InjectScripts.Settings;
 using Etch.OrchardCore.InjectScripts.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
@@ -15,6 +16,7 @@ namespace Etch.OrchardCore.InjectScripts.Drivers
     {
         #region Dependencies
 
+        private readonly IAuthorizationService _authorizationService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IShellHost _shellHost;
         private readonly ShellSettings _shellSettings;
@@ -24,10 +26,12 @@ namespace Etch.OrchardCore.InjectScripts.Drivers
         #region Constructor
 
         public InjectScriptsSettingsDisplayDriver(
+            IAuthorizationService authorizationService,
             IHttpContextAccessor httpContextAccessor,
             IShellHost shellHost,
             ShellSettings shellSettings)
         {
+            _authorizationService = authorizationService;
             _httpContextAccessor = httpContextAccessor;
             _shellHost = shellHost;
             _shellSettings = shellSettings;
@@ -37,8 +41,15 @@ namespace Etch.OrchardCore.InjectScripts.Drivers
 
         #region Overrides
 
-        public override IDisplayResult Edit(InjectScriptsSettings settings, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(InjectScriptsSettings settings, BuildEditorContext context)
         {
+            var user = _httpContextAccessor.HttpContext?.User;
+
+            if (!await _authorizationService.AuthorizeAsync(user, Permissions.ManageInjectScripts))
+            {
+                return null;
+            }
+
             return Initialize<InjectScriptsSettingsViewModel>("InjectScriptsSettings_Edit", model =>
             {
                 model.Head = settings.Head?.FirstOrDefault() ?? string.Empty;
@@ -48,6 +59,13 @@ namespace Etch.OrchardCore.InjectScripts.Drivers
 
         public override async Task<IDisplayResult> UpdateAsync(InjectScriptsSettings settings, BuildEditorContext context)
         {
+            var user = _httpContextAccessor.HttpContext?.User;
+
+            if (!await _authorizationService.AuthorizeAsync(user, Permissions.ManageInjectScripts))
+            {
+                return null;
+            }
+
             if (context.GroupId == Constants.GroupId)
             {
                 var model = new InjectScriptsSettingsViewModel();

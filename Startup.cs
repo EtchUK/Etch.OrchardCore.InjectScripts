@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
+using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
 
 namespace Etch.OrchardCore.InjectScripts
@@ -16,6 +17,8 @@ namespace Etch.OrchardCore.InjectScripts
             //services.AddRecipeExecutionStep<GoogleAnalyticsSettingsStep>();
             services.AddScoped<IDisplayDriver<ISite>, InjectScriptsSettingsDisplayDriver>();
             services.AddScoped<INavigationProvider, AdminMenu>();
+            services.AddScoped<IPermissionProvider, Permissions>();
+
             services.Configure<MvcOptions>((options) =>
             {
                 options.Filters.Add(typeof(InjectScriptsFilter));
