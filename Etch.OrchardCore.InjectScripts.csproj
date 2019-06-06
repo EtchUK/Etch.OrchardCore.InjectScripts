@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.1-beta</Version>
+    <Version>0.0.2-beta</Version>
     <PackageId>Etch.OrchardCore.InjectScripts</PackageId>
     <Title>Inject Scripts</Title>
     <Authors>Etch</Authors>
