@@ -1,10 +1,6 @@
 # Etch.OrchardCore.InjectScripts
 
-Specify custom script blocks for the `<head>` or at the bottom of the page. Useful for adding third party integrations (e.g. Google Analytics).
-
-# Etch.OrchardCore.Fields
-
-Module for [Orchard Core](https://github.com/OrchardCMS/OrchardCore) that provides useful content fields.
+Module for [Orchard Core](https://github.com/OrchardCMS/OrchardCore) that allows you to specify custom script blocks for the `<head>` or at the bottom of the page. Useful for adding third party integrations (e.g. Google Analytics).
 
 ## Build Status
 
