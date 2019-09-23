@@ -4,9 +4,7 @@ Module for [Orchard Core](https://github.com/OrchardCMS/OrchardCore) that allows
 
 ## Build Status
 
-[![Build Status](https://secure.travis-ci.org/etchuk/Etch.OrchardCore.InjectScripts.png?branch=master)](http://travis-ci.org/etchuk/Etch.OrchardCore.InjectScripts)
-
-_This module is currently under development and will be made available on NuGet when usable._
+[![Build Status](https://secure.travis-ci.org/etchuk/Etch.OrchardCore.InjectScripts.png?branch=master)](http://travis-ci.org/etchuk/Etch.OrchardCore.InjectScripts) [![NuGet](https://img.shields.io/nuget/v/Etch.OrchardCore.InjectScripts.svg)](https://www.nuget.org/packages/Etch.OrchardCore.InjectScripts)
 
 ## Orchard Core Reference
 
@@ -14,6 +12,6 @@ This module is referencing the beta 3 build of Orchard Core ([`1.0.0-beta3-71077
 
 ## Installing
 
-[Download the source](https://github.com/etchuk/Etch.OrchardCore.InjectScripts/archive/master.zip) or clone the repository to your local machine. Add the project to your solution that contains an Orchard Core project and add a reference to Etch.OrchardCore.InjectScripts.
+This module is [available on NuGet](https://www.nuget.org/packages/Etch.OrchardCore.InjectScripts). Add a reference to your Orchard Core web project via the NuGet package manager. Search for "Etch.OrchardCore.Fields", ensuring include prereleases is checked.
 
-Once the module is in a usable state we'll make it available via NuGet.
+Alternatively you can [download the source](https://github.com/etchuk/Etch.OrchardCore.InjectScripts/archive/master.zip) or clone the repository to your local machine. Add the project to your solution that contains an Orchard Core project and add a reference to Etch.OrchardCore.InjectScripts.
