@@ -1,5 +1,6 @@
 pool:
-  name: Hosted VS2017
+  vmImage: 'windows-2019'
+
 variables:
   BuildConfiguration: 'Release'
 
@@ -18,8 +19,10 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: pack
-    versioningScheme: byEnvVar
-    versionEnvVar: 'VERSION_MAJORMINORPATCH'
+    versioningScheme: byPrereleaseNumber
+    majorVersion: '$(Version.Major)'
+    minorVersion: '$(Version.Minor)'
+    patchVersion: '$(Version.Patch)'
 
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact'
