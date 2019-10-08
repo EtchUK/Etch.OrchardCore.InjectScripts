@@ -12,6 +12,6 @@ This module is referencing the beta 3 build of Orchard Core ([`1.0.0-beta3-71077
 
 ## Installing
 
-This module is [available on NuGet](https://www.nuget.org/packages/Etch.OrchardCore.InjectScripts). Add a reference to your Orchard Core web project via the NuGet package manager. Search for "Etch.OrchardCore.Fields", ensuring include prereleases is checked.
+This module is [available on NuGet](https://www.nuget.org/packages/Etch.OrchardCore.InjectScripts). Add a reference to your Orchard Core web project via the NuGet package manager. Search for "Etch.OrchardCore.InjectScripts", ensuring include prereleases is checked.
 
 Alternatively you can [download the source](https://github.com/etchuk/Etch.OrchardCore.InjectScripts/archive/master.zip) or clone the repository to your local machine. Add the project to your solution that contains an Orchard Core project and add a reference to Etch.OrchardCore.InjectScripts.
