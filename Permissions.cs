@@ -1,5 +1,7 @@
 ﻿using OrchardCore.Security.Permissions;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Etch.OrchardCore.InjectScripts
 {
@@ -7,9 +9,9 @@ namespace Etch.OrchardCore.InjectScripts
     {
         public static readonly Permission ManageInjectScripts = new Permission("InjectScipts", "Manage Inject Scripts");
 
-        public IEnumerable<Permission> GetPermissions()
+        public Task<IEnumerable<Permission>> GetPermissionsAsync()
         {
-            return new[] { ManageInjectScripts };
+            return Task.FromResult(new[] { ManageInjectScripts }.AsEnumerable());
         }
 
         public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
