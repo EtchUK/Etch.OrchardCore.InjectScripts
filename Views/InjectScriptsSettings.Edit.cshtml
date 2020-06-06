@@ -1,21 +1,65 @@
 ﻿@using Etch.OrchardCore.InjectScripts.ViewModels
+
 @model InjectScriptsSettingsViewModel
+
+@{
+    var headId = Guid.NewGuid();
+    var footId = Guid.NewGuid();
+}
+
+<script asp-src="~/Etch.OrchardCore.InjectScripts/Scripts/ace/ace.js" asp-name="ace" at="Foot"></script>
+
+<script at="Foot">
+    (function () {
+        var init = function (id) {
+            var editor = window.ace.edit(id),
+                $input = document.querySelector('.editor-' + id);
+            editor.setTheme('ace/theme/crimson_editor');
+            editor.session.setMode('ace/mode/html');
+            editor.setOptions({
+                autoScrollEditorIntoView: true,
+                maxLines: 80,
+                showPrintMargin: false
+            });
+            editor.renderer.setScrollMargin(10, 10, 10, 10);
+            editor.session.on('change', function () {
+                $input.value = editor.session.getValue();
+            });
+        };
+
+        init('@headId');
+        init('@footId');
+    })();
+</script>
+
+<style>
+    .ace_editor {
+        border: 1px solid lightgray;
+        margin: auto;
+        height: 200px;
+        width: 100%;
+    }
+</style>
 
 <h3>@T["Inject Scripts Settings"]</h3>
 
 <div class="form-group row" asp-validation-class-for="Head">
     <div class="col-lg">
         <label asp-for="Head">@T["Head"]</label>
-        <textarea asp-for="Head" class="form-control" autocomplete="off"></textarea>
+        <pre id="@headId">@Model.Head</pre>
+        <input asp-for="Head" type="hidden" class="editor-@headId" />
         <span asp-validation-for="Head"></span>
         <span class="hint">@T["HTML will be injected in to the head section."]</span>
     </div>
 </div>
 
+
+
 <div class="form-group row" asp-validation-class-for="Foot">
     <div class="col-lg">
-        <label asp-for="Head">@T["Foot"]</label>
-        <textarea asp-for="Foot" class="form-control" autocomplete="off"></textarea>
+        <label asp-for="Foot">@T["Foot"]</label>
+        <pre id="@footId">@Model.Foot</pre>
+        <input asp-for="Foot" type="hidden" class="editor-@footId" />
         <span asp-validation-for="Foot"></span>
         <span class="hint">@T["HTML will be injected at the bottom of the page"]</span>
     </div>
