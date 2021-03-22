@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 namespace Etch.OrchardCore.InjectScripts
 {
     public class AdminMenu : INavigationProvider
-    {
-        private readonly ShellDescriptor _shellDescriptor;
-
-        public AdminMenu(IStringLocalizer<AdminMenu> localizer, ShellDescriptor shellDescriptor)
+    { 
+        public AdminMenu(IStringLocalizer<AdminMenu> localizer)
         {
-            T = localizer;
-            _shellDescriptor = shellDescriptor;
+            S = localizer;
         }
 
-        public IStringLocalizer T { get; set; }
+        public IStringLocalizer S { get; set; }
 
         public Task BuildNavigationAsync(string name, NavigationBuilder builder)
         {
@@ -25,8 +22,9 @@ namespace Etch.OrchardCore.InjectScripts
                 return Task.CompletedTask;
             }
 
-            builder.Add(T["Configuration"], content => content
-                .Add(T["Scripts"], "10", contentItems => contentItems
+            builder.Add(S["Configuration"], content => content
+                .Add(S["Scripts"], S["Scripts"].PrefixPosition(), contentItems => contentItems
+                    .AddClass("scripts").Id("scripts")
                     .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = Constants.GroupId })
                     .Permission(Permissions.ManageInjectScripts)
                     .LocalNav())

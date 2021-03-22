@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.3.0-rc2</Version>
+    <Version>1.0.0</Version>
     <PackageId>Etch.OrchardCore.InjectScripts</PackageId>
     <Title>Inject Scripts</Title>
     <Authors>Etch</Authors>
@@ -13,11 +13,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.Navigation" Version="1.0.0-rc2-13450" />
-    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0-rc2-13450" />
+    <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.Navigation" Version="1.0.0" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
