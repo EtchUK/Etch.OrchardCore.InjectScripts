@@ -4,7 +4,7 @@ Module for [Orchard Core](https://github.com/OrchardCMS/OrchardCore) that allows
 
 ## Build Status
 
-[![Build Status](https://secure.travis-ci.org/etchuk/Etch.OrchardCore.InjectScripts.png?branch=master)](http://travis-ci.org/etchuk/Etch.OrchardCore.InjectScripts) [![NuGet](https://img.shields.io/nuget/v/Etch.OrchardCore.InjectScripts.svg)](https://www.nuget.org/packages/Etch.OrchardCore.InjectScripts)
+[![NuGet](https://img.shields.io/nuget/v/Etch.OrchardCore.InjectScripts.svg)](https://www.nuget.org/packages/Etch.OrchardCore.InjectScripts)
 
 ## Orchard Core Reference
 
